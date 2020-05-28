@@ -28,14 +28,28 @@ setRandomPhoto();
 export function searchPhotos() {
   welcomeTile.innerHTML = "";
   carouselInner.innerHTML = "";
-  let url = `https://api.unsplash.com/users/${userName.value}/photos/?client_id=${clientId}`;
+  let perPage = {
+    photos: 0
+  }
+  let url = `https://api.unsplash.com/users/${userName.value}/photos?per_page=${perPage.photos}&client_id=${clientId}`;
+  // let url = `https://api.unsplash.com/users/${userName.value}/photos?per_page=${perPage}&page=4&client_id=${clientId}`;
+  // let url = `https://api.unsplash.com/users/${userName.value}/?client_id=${clientId}`;
 
 //request to the API
+  fetch(`https://api.unsplash.com/users/${userName.value}/?client_id=${clientId}`)
+    .then(resp => resp.json())
+    .then(resp => {
+      perPage.photos = resp.total_photos;
+    })
+
+
 
 
   fetch(url)
     .then(resp => resp.json())
     .then(resp => {
+      console.log(resp);
+
       gallery.classList.remove("hidden");
 
       if (resp.length < 1) {
