@@ -1,4 +1,4 @@
-import './main.scss';
+import './styles/main.scss';
 
 let clientId = "OAX7jYHyzy2x5AYlCaB7Ia5X_2q-NTLHTNmmXwbws2E";
 const buttonSearch = document.querySelector(".btn-search");
@@ -83,7 +83,7 @@ export function searchPhotos() {
       `
       slider.prepend(newElement);
     });
-  userName.value = "";
+  // userName.value = "";
   buttonSearch.setAttribute("disabled", "true");
 }
 
@@ -96,15 +96,17 @@ userName.addEventListener('keyup', function(event) {
   }
   //Validate input value
   else if (userName.value.trim() != "") {
-    buttonSearch.removeAttribute("disabled")
+    buttonSearch.removeAttribute("disabled");
+    buttonReload.removeAttribute("disabled");
   }
   else {
-    buttonSearch.setAttribute("disabled", "true")
+    buttonSearch.setAttribute("disabled", "true");
+    buttonReload.setAttribute("disabled", "true");
   }
 })
 
-buttonSearch.addEventListener("click", searchPhotos);
-buttonReload.addEventListener("click", searchPhotos)
+buttonSearch.addEventListener("click", () => searchPhotos(userName));
+buttonReload.addEventListener("click", () => searchPhotos(userName));
 
 
 
