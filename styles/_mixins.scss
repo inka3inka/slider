@@ -4,8 +4,8 @@
   }
 }
 
-@mixin media-desktop {
-  @media screen and (min-width: 1024px) {
+@mixin media-mobile {
+  @media screen and (max-height: 430px) {
     @content
   }
 }

@@ -20,10 +20,14 @@ body {
   @include media-vertical {
     justify-content: space-evenly;
   }
+  @include media-mobile {
+    padding-top: 3vh;
+    height: 8vh;
+  }
 }
 
 #search {
-  width: 20vw;
+  width: 25vw;
   height: 5vh;
   font-size: 1.2rem;
   border-style: none;
@@ -35,6 +39,10 @@ body {
   @include media-vertical {
     width: 40vw;
   }
+
+  @include media-mobile {
+    height: 7vh;
+  }
 }
 
 .btn {
@@ -44,9 +52,14 @@ body {
   font-size: 1.2rem;
   line-height: 1.2rem;
   box-shadow: 0 0 6px #ffffff;
+  padding: 0 1vw;
 
   @include media-vertical {
-    width: 20vw
+    width: 20vw;
+  }
+
+  @include media-mobile {
+    height: 7vh;
   }
 }
 
@@ -54,12 +67,8 @@ body {
   margin-right: 8px
 }
 
-.hidden {
-  display: none
-}
-
 .slider {
-  margin-top: 20px;
+  margin-top: 3.5vh;
 
   @include media-vertical {
     margin-top: 6vh
@@ -94,4 +103,8 @@ img {
 .carousel-control-prev-icon, .carousel-control-next-icon {
   width: 25px;
   height: 25px
+}
+
+.hidden {
+  display: none
 }
